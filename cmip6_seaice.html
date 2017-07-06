@@ -1,0 +1,398 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <title>ES-DOC - Specialization</title>
+        <link href="media/app/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="media/ext/bootstrap-3.3.6/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="media/app/css/header.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="media/app/css/main.css" media="screen" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    <header class="clearfix main">
+        <img alt="Earth System Documentation" class="pull-left" src="media/app/img/logo-1.png" title="Earth System Documentation" />
+        <h1 class="pull-right">
+            <small><b>Specialization Viewer</b>
+            </small>
+            <b class="h6"> v0.9.7.5</b>
+            <button class="esdoc-support btn btn-success">Support</button>
+        </h1>
+    </header>
+    <article id="cmip6.seaice">
+    <header>
+        <h2 class="bg-primary">CMIP6 Seaice Specialization</h2>
+    </header>
+<section id="cmip6.seaice.grid">
+    <header>
+        <h3 class="bg-primary">Grid</h3>
+    </header>
+    <table class="table table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th class="prop-name">Property Long Name</th>
+                <th class="prop-cardinality">Cardinality</th>
+                <th class="prop-typeof">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+    <td class="prop-name">Discretisation --&gt; Horizontal --&gt; Grid</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Ocean grid">Ocean grid</option><option title="Atmosphere Grid">Atmosphere Grid</option><option title="Own Grid">Own Grid</option></select></td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Horizontal --&gt; Grid Type</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Structured grid">Structured grid</option><option title="Unstructured grid">Unstructured grid</option><option title="Adaptive grid">Adaptive grid</option></select></td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Horizontal --&gt; Scheme</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Finite differences">Finite differences</option><option title="Finite elements">Finite elements</option><option title="Finite volumes">Finite volumes</option></select></td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Horizontal --&gt; Thermodynamics Time Step</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">int</td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Horizontal --&gt; Dynamics Time Step</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">int</td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Horizontal --&gt; Additional Details</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Vertical --&gt; Layering</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Zero-layer">Zero-layer</option><option title="Two-layers">Two-layers</option><option title="Multi-layers">Multi-layers</option></select></td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Vertical --&gt; Number Of Layers</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">int</td>
+</tr><tr>
+    <td class="prop-name">Discretisation --&gt; Vertical --&gt; Additional Details</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Seaice Categories --&gt; Has Mulitple Categories</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Seaice Categories --&gt; Number Of Categories</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">int</td>
+</tr><tr>
+    <td class="prop-name">Seaice Categories --&gt; Category Limits</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Seaice Categories --&gt; Ice Thickness Distribution Scheme</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Seaice Categories --&gt; Other</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Snow On Seaice --&gt; Has Snow On Ice</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Snow On Seaice --&gt; Number Of Snow Levels</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">int</td>
+</tr><tr>
+    <td class="prop-name">Snow On Seaice --&gt; Snow Fraction</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Snow On Seaice --&gt; Additional Details</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr></tbody>
+    </table>
+</section><section id="cmip6.seaice.key_properties">
+    <header>
+        <h3 class="bg-primary">Key Properties</h3>
+    </header>
+    <table class="table table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th class="prop-name">Property Long Name</th>
+                <th class="prop-cardinality">Cardinality</th>
+                <th class="prop-typeof">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+    <td class="prop-name">Model --&gt; Model Name</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Variables --&gt; Prognostic</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Sea ice temperature">Sea ice temperature</option><option title="Sea ice concentration">Sea ice concentration</option><option title="Sea ice thickness">Sea ice thickness</option><option title="Sea ice volume per grid cell area">Sea ice volume per grid cell area</option><option title="Sea ice u-velocity">Sea ice u-velocity</option><option title="Sea ice v-velocity">Sea ice v-velocity</option><option title="Sea ice enthalpy">Sea ice enthalpy</option><option title="Internal ice stress">Internal ice stress</option><option title="Salinity">Salinity</option><option title="Snow temperature">Snow temperature</option><option title="Snow depth">Snow depth</option></select></td>
+</tr><tr>
+    <td class="prop-name">Seawater Properties --&gt; Ocean Freezing Point</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="TEOS-10">TEOS-10</option><option title="Constant">Constant</option></select></td>
+</tr><tr>
+    <td class="prop-name">Seawater Properties --&gt; Ocean Freezing Point Value</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">float</td>
+</tr><tr>
+    <td class="prop-name">Resolution --&gt; Name</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Resolution --&gt; Canonical Horizontal Resolution</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Resolution --&gt; Number Of Horizontal Gridpoints</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">int</td>
+</tr><tr>
+    <td class="prop-name">Tuning Applied --&gt; Description</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Tuning Applied --&gt; Target</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Tuning Applied --&gt; Simulations</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Tuning Applied --&gt; Metrics Used</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Tuning Applied --&gt; Variables</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Assumptions --&gt; Description</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Assumptions --&gt; On Diagnostic Variables</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Assumptions --&gt; Missing Processes</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Conservation --&gt; Description</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Conservation --&gt; Properties</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Energy">Energy</option><option title="Mass">Mass</option><option title="Salt">Salt</option></select></td>
+</tr><tr>
+    <td class="prop-name">Conservation --&gt; Budget</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Conservation --&gt; Was Flux Correction Used</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Conservation --&gt; Corrected Conserved Prognostic Variables</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr></tbody>
+    </table>
+</section><section id="cmip6.seaice.dynamics">
+    <header>
+        <h3 class="bg-primary">Dynamics</h3>
+    </header>
+    <table class="table table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th class="prop-name">Property Long Name</th>
+                <th class="prop-cardinality">Cardinality</th>
+                <th class="prop-typeof">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+    <td class="prop-name">Horizontal Transport</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Incremental Re-mapping">Incremental Re-mapping</option><option title="Prather">Prather</option><option title="Eulerian">Eulerian</option></select></td>
+</tr><tr>
+    <td class="prop-name">Transport In Thickness Space</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Incremental Re-mapping">Incremental Re-mapping</option><option title="Prather">Prather</option><option title="Eulerian">Eulerian</option></select></td>
+</tr><tr>
+    <td class="prop-name">Ice Strength Formulation</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Hibler 1979">Hibler 1979</option><option title="Rothrock 1975">Rothrock 1975</option></select></td>
+</tr><tr>
+    <td class="prop-name">Redistribution</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Rafting">Rafting</option><option title="Ridging">Ridging</option></select></td>
+</tr><tr>
+    <td class="prop-name">Rheology</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Free-drift">Free-drift</option><option title="Mohr-Coloumb">Mohr-Coloumb</option><option title="Visco-plastic">Visco-plastic</option><option title="Elastic-visco-plastic">Elastic-visco-plastic</option><option title="Elastic-aniostropic-plastic">Elastic-aniostropic-plastic</option><option title="Granular">Granular</option></select></td>
+</tr></tbody>
+    </table>
+</section><section id="cmip6.seaice.thermodynamics">
+    <header>
+        <h3 class="bg-primary">Thermodynamics</h3>
+    </header>
+    <table class="table table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th class="prop-name">Property Long Name</th>
+                <th class="prop-cardinality">Cardinality</th>
+                <th class="prop-typeof">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+    <td class="prop-name">Energy --&gt; Enthalpy Formulation</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Pure ice latent heat (Semtner 0-layer)">Pure ice latent heat (Semtner 0-layer)</option><option title="Pure ice latent and sensible heat">Pure ice latent and sensible heat</option><option title="Pure ice latent and sensible heat + brine heat reservoir (Semtner 3-layer)">Pure ice latent and sensible heat + brine heat reservoir (Semtner 3-layer)</option><option title="Pure ice latent and sensible heat + explicit brine inclusions (Bitz and Lipscomb)">Pure ice latent and sensible heat + explicit brine inclusions (Bitz and Lipscomb)</option></select></td>
+</tr><tr>
+    <td class="prop-name">Energy --&gt; Thermal Conductivity</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Pure ice">Pure ice</option><option title="Saline ice">Saline ice</option></select></td>
+</tr><tr>
+    <td class="prop-name">Energy --&gt; Heat Diffusion</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Conduction fluxes">Conduction fluxes</option><option title="Conduction and radiation heat fluxes">Conduction and radiation heat fluxes</option><option title="Conduction, radiation and latent heat transport">Conduction, radiation and latent heat transport</option></select></td>
+</tr><tr>
+    <td class="prop-name">Energy --&gt; Basal Heat Flux</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Heat Reservoir">Heat Reservoir</option><option title="Thermal Fixed Salinity">Thermal Fixed Salinity</option><option title="Thermal Varying Salinity">Thermal Varying Salinity</option></select></td>
+</tr><tr>
+    <td class="prop-name">Energy --&gt; Fixed Salinity Value</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">float</td>
+</tr><tr>
+    <td class="prop-name">Energy --&gt; Heat Content Of Precipitation</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Mass --&gt; New Ice Formation</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Mass --&gt; Ice Vertical Growth And Melt</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Mass --&gt; Ice Lateral Melting</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Floe-size dependent (Bitz et al 2001)">Floe-size dependent (Bitz et al 2001)</option><option title="Virtual thin ice melting (for single-category)">Virtual thin ice melting (for single-category)</option></select></td>
+</tr><tr>
+    <td class="prop-name">Mass --&gt; Ice Surface Sublimation</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Mass --&gt; Frazil Ice</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Has Multiple Sea Ice Salinities</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Sea Ice Salinity Thermal Impacts</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Mass Transport --&gt; Salinity Type</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Constant">Constant</option><option title="Prescribed salinity profile">Prescribed salinity profile</option><option title="Prognostic salinity profile">Prognostic salinity profile</option></select></td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Mass Transport --&gt; Constant Salinity Value</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">float</td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Mass Transport --&gt; Additional Details</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Thermodynamics --&gt; Salinity Type</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Constant">Constant</option><option title="Prescribed salinity profile">Prescribed salinity profile</option><option title="Prognostic salinity profile">Prognostic salinity profile</option></select></td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Thermodynamics --&gt; Constant Salinity Value</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">float</td>
+</tr><tr>
+    <td class="prop-name">Salt --&gt; Thermodynamics --&gt; Additional Details</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Ice Thickness Distribution --&gt; Representation</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Explicit">Explicit</option><option title="Virtual (enhancement of thermal conductivity, thin ice melting)">Virtual (enhancement of thermal conductivity, thin ice melting)</option></select></td>
+</tr><tr>
+    <td class="prop-name">Melt Ponds --&gt; Are Included</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Melt Ponds --&gt; Formulation</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Flocco and Feltham (2010)">Flocco and Feltham (2010)</option><option title="Level-ice melt ponds">Level-ice melt ponds</option></select></td>
+</tr><tr>
+    <td class="prop-name">Melt Ponds --&gt; Impacts</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Albedo">Albedo</option><option title="Freshwater">Freshwater</option><option title="Heat">Heat</option></select></td>
+</tr><tr>
+    <td class="prop-name">Snow Processes --&gt; Has Snow Aging</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Snow Processes --&gt; Snow Aging Scheme</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Snow Processes --&gt; Has Snow Ice Formation</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof">bool</td>
+</tr><tr>
+    <td class="prop-name">Snow Processes --&gt; Snow Ice Formation Scheme</td>
+    <td class="prop-cardinality">0.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Snow Processes --&gt; Redistribution</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof">str</td>
+</tr><tr>
+    <td class="prop-name">Snow Processes --&gt; Heat Diffusion</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Single-layered heat diffusion">Single-layered heat diffusion</option><option title="Multi-layered heat diffusion">Multi-layered heat diffusion</option></select></td>
+</tr></tbody>
+    </table>
+</section><section id="cmip6.seaice.radiative_processes">
+    <header>
+        <h3 class="bg-primary">Radiative Processes</h3>
+    </header>
+    <table class="table table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th class="prop-name">Property Long Name</th>
+                <th class="prop-cardinality">Cardinality</th>
+                <th class="prop-typeof">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+    <td class="prop-name">Surface Albedo</td>
+    <td class="prop-cardinality">1.1</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Delta-Eddington">Delta-Eddington</option><option title="Parameterized">Parameterized</option><option title="Multi-band albedo">Multi-band albedo</option></select></td>
+</tr><tr>
+    <td class="prop-name">Ice Radiation Transmission</td>
+    <td class="prop-cardinality">1.N</td>
+    <td class="prop-typeof"><select><option>enum</option><option title="Delta-Eddington">Delta-Eddington</option><option title="Exponential attenuation">Exponential attenuation</option><option title="Ice radiation transmission per category">Ice radiation transmission per category</option></select></td>
+</tr></tbody>
+    </table>
+</section></article></body>
+</html>
