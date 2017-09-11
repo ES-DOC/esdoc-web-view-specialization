@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ---------------------------------------------- -->
+<!-- Document head                                  -->
+<!-- ---------------------------------------------- -->
+<head>
+    <!-- ---------------------------------------------- -->
+    <!-- Meta:                                         -->
+    <!-- ---------------------------------------------- -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ES-DOC - Specializations</title>
+    <link rel="shortcut icon" type="image/x-icon" href="media/img/favicon.ico" />
+    <!-- ---------------------------------------------- -->
+    <!-- CSS:                                          -->
+    <!-- ---------------------------------------------- -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ES-DOC - Specializations</title>
+    <link rel="shortcut icon" type="image/x-icon" href="media/img/favicon.ico" />
+    <link href="media/ext/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="media/css/header.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="media/css/main.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+
+<!-- ---------------------------------------------- -->
+<!-- Document body                                  -->
+<!-- ---------------------------------------------- -->
+<body>
+
+<!-- TEMPLATE:Page header -->
+<script type="underscore/template" id="template-header">
+    <header class="clearfix main">
+        <img src="media/img/logo-1.png" alt="Earth System Documentation" title="Earth System Documentation" class="esdoc-logo pull-left" />
+        <h1 class="pull-right">
+            <small><b>Specializations Viewer</b>
+            </small>
+            <b class="h6"> v<%= APP.VERSION %></b>
+            <button class="esdoc-support btn btn-success">Support</button>
+        </h1>
+    </header>
+    <div id="propertyDetails"></div>
+</script>
+
+<!-- TEMPLATE:Filters -->
+<script type="underscore/template" id="template-filters">
+
+<div class="container-fluid bg-primary" style="padding:5px;">
+    <div class="row">
+        <span class="col-md-3">
+            <label for="projectFilter">Project:</label>
+            <%= APP.utils.renderTemplate("template-project-filter") %>
+        </span>
+        <span class="col-md-3">
+            <label for="topicFilter" id="topicFilterLabel"><%= STATE.config.labels.topic %>:</label>
+            <%= APP.utils.renderTemplate("template-topic-filter") %>
+        </span>
+        <span class="col-md-3">
+            <label for="subTopicGroupFilter" id="subTopicGroupFilterLabel"><%= STATE.config.labels.subTopic %>:</label>
+            <%= APP.utils.renderTemplate("template-subtopic-group-filter") %>
+        </span>
+        <span class="col-md-3">
+            <label for="shortTableFilter">Short Table:</label>
+            <%= APP.utils.renderTemplate("template-short-table-filter") %>
+        </span>
+    </div>
+</div>
+
+</script>
+
+<!-- TEMPLATE:Project Filter -->
+<script type="underscore/template" id="template-project-filter">
+    <select id="projectFilter" class="form-control input-sm">
+        <% _.each(STATE.projects, function(i) { %>
+        <option value="<%= i.id %>" <%= i == STATE.project ? "selected" :"" %>>
+            <%- i.label %>
+        </option>
+        <% }); %>
+    </select>
+</script>
+
+<!-- TEMPLATE:Topic Filter -->
+<script type="underscore/template" id="template-topic-filter">
+    <select id="topicFilter" class="form-control input-sm">
+        <% _.each(STATE.topics, function(i) { %>
+        <option value="<%= i.id %>" <%= i == STATE.topic ? "selected" :"" %>>
+            <%- i.label %>
+        </option>
+        <% }); %>
+    </select>
+</script>
+
+<!-- TEMPLATE:Group Filter -->
+<script type="underscore/template" id="template-subtopic-group-filter">
+    <select id="subTopicGroupFilter" class="form-control input-sm">
+        <% _.each(STATE.subTopicGroups, function(i) { %>
+        <option value="<%= i.id %>" <%= i == STATE.subTopicGroup ? "selected" :"" %>>
+            <%- i.label %>
+        </option>
+        <% }); %>
+    </select>
+</script>
+
+<!-- TEMPLATE:Short-Table Filter -->
+<script type="underscore/template" id="template-short-table-filter">
+    <select id="shortTableFilter" class="form-control input-sm">
+        <% _.each(STATE.shortTables, function(i) { %>
+        <option value="<%= i.id %>">
+            <%- i.label %>
+        </option>
+        <% }); %>
+    </select>
+</script>
+
+<!-- TEMPLATE:Property set -->
+<script type="underscore/template" id="template-property-sets">
+    <div id='propertySets'>
+        <% var rendered = false %>
+        <% _.each(STATE.subTopicGroup.subTopics, function(subTopic) { %>
+        <% var properties = _.filter(subTopic.properties, function (i) {
+                return _.contains(STATE.shortTable.identifiers, i.id);
+            });
+        %>
+        <% if (properties.length) { %>
+        <% rendered = true %>
+        <section>
+            <header class="bg-primary" style="margin-bottom:5px;">
+                <h3>
+                    <%= STATE.project.label + " - " + STATE.topic.label + " - " + subTopic.label %>
+                </h3>
+            </header>
+            <% _.each(properties, function(property) { %>
+            <table class="table table-bordered table-hover table-condensed" style="margin-bottom:8px;">
+                <tbody>
+                    <tr class="bg-info">
+                        <td class="bg-info property-name" colspan="3">
+                            <strong><%- property.label %></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-3"><strong>Description</strong></td>
+                        <td colspan="2"><%= property.description %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-3"><strong>Cardinality</strong></td>
+                        <td colspan="2"><%= property.cardinality %></td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-3"><strong>Type</strong></td>
+                        <td colspan="2"><%= property.type %></td>
+                    </tr>
+                    <!-- Enums -->
+                    <% if (property.type === "enum") { %>
+                    <% _.each(property.enum.choices, function(choice, index) { %>
+                    <tr>
+                        <td class="col-md-3"><strong><%= choice == _.first(property.enum.choices) ? "Enum Choices" :"" %></strong></td>
+                        <td class="col-md-3">
+                            <%= choice.value %>
+                        </td>
+                        <td>
+                            <%= $.trim(choice.description) || "--" %>
+                        </td>
+                    </tr>
+                    <% }); %>
+                    <tr>
+                        <td class="col-md-3"><strong>Enum Is Open ?</strong></td>
+                        <td colspan="2" style="text-transform:capitalize;"><%= property.enum.is_open %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <% }); %>
+        </section>
+        <% } %>
+        <% if (rendered === false) { %>
+            <br/>
+            <div class="alert alert-warning" role="alert">
+                <strong>No specializations match your filters - please refine</strong>
+            </div>
+        <% } %>
+        <% }); %>
+    </div>
+</script>
+
+<!-- ---------------------------------------------- -->
+<!-- JS:3rd party libraries                         -->
+<!-- ---------------------------------------------- -->
+<script src="media/ext/jquery-2.1.0.min.js"></script>
+<script src="media/ext/linkify.min.js"></script>
+<script src="media/ext/linkify-jquery.min.js"></script>
+<script src="media/ext/lodash.underscore.min.js"></script>
+<script src="media/ext/backbone.js" type="text/javascript"></script>
+<script src="media/ext/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<!-- ---------------------------------------------- -->
+<!-- JS:Application scripts                         -->
+<!-- ---------------------------------------------- -->
+<script src="media/js/_.js" type="text/javascript"></script>
+<script src="media/js/constants.js" type="text/javascript"></script>
+<script src="media/js/utils.js" type="text/javascript"></script>
+<script src="media/js/view.model.js" type="text/javascript"></script>
+<script src="media/js/view.controller.js" type="text/javascript"></script>
+<script src="media/js/view.renderer.js" type="text/javascript"></script>
+<!-- ---------------------------------------------- -->
+<!-- JS:Application data                            -->
+<!-- ---------------------------------------------- -->
+<!-- CMIP6                                          -->
+<script src="data/cmip6_toplevel.js" type="text/javascript"></script>
+<script src="data/cmip6_aerosol.js" type="text/javascript"></script>
+<script src="data/cmip6_atmos.js" type="text/javascript"></script>
+<script src="data/cmip6_atmoschem.js" type="text/javascript"></script>
+<script src="data/cmip6_land.js" type="text/javascript"></script>
+<script src="data/cmip6_landice.js" type="text/javascript"></script>
+<script src="data/cmip6_ocean.js" type="text/javascript"></script>
+<script src="data/cmip6_ocnbgchem.js" type="text/javascript"></script>
+<script src="data/cmip6_seaice.js" type="text/javascript"></script>
+<!-- CMIP5                                          -->
+<script src="data/cmip5_toplevel.js" type="text/javascript"></script>
+
+</body>
+
+</html>
