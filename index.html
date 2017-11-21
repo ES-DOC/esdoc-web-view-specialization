@@ -35,7 +35,7 @@
     <header class="clearfix main">
         <img src="media/img/logo.png" alt="Earth System Documentation" title="Earth System Documentation" class="esdoc-logo pull-left" />
         <h1 class="pull-right">
-            <small><b>Specializations Viewer</b>
+            <small><b><%= STATE.project.label %> Specializations Viewer</b>
             </small>
             <b class="h6"> v<%= APP.VERSION %></b>
             <button class="esdoc-support btn btn-success">Support</button>
@@ -47,20 +47,22 @@
 <script type="underscore/template" id="template-filters">
     <div class="container-fluid bg-primary" style="padding:5px;">
         <div class="row">
+            <!--
             <span class="col-md-3">
                 <label for="projectFilter">Project:</label>
                 <%= APP.utils.renderTemplate("template-project-filter") %>
             </span>
-            <span class="col-md-3">
+            -->
+            <span class="col-md-4">
                 <label for="topicFilter" id="topicFilterLabel"><%= STATE.config.labels.topic %>: </label>
                 <span class="topic-further-info-button badge">?</span>
                 <%= APP.utils.renderTemplate("template-topic-filter") %>
             </span>
-            <span class="col-md-3">
+            <span class="col-md-4">
                 <label for="subTopicGroupFilter" id="subTopicGroupFilterLabel"><%= STATE.config.labels.subTopic %>:</label>
                 <%= APP.utils.renderTemplate("template-subtopic-group-filter") %>
             </span>
-            <span class="col-md-3">
+            <span class="col-md-4">
                 <label for="tableFilter">Short Table:</label>
                 <%= APP.utils.renderTemplate("template-table-filter") %>
             </span>
