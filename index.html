@@ -135,30 +135,29 @@
                         <td colspan="2"><%= property.description %></td>
                     </tr>
                     <tr>
-                        <td class="col-md-3"><strong>Cardinality</strong></td>
-                        <td colspan="2"><%= property.cardinality %></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3"><strong>Type</strong></td>
-                        <td colspan="2"><%= property.type %></td>
+                        <td class="col-md-3"><strong>Type | Cardinality</strong></td>
+                        <td colspan="2"><%= property.type %> | <%= property.cardinality %></td>
                     </tr>
                     <!-- Enums -->
                     <% if (property.type === "enum") { %>
-                    <% _.each(property.enum.choices, function(choice, index) { %>
-                    <tr>
-                        <td class="col-md-3"><strong><%= choice == _.first(property.enum.choices) ? "Enum Choices" :"" %></strong></td>
-                        <td class="col-md-3">
-                            <%= choice.value %>
-                        </td>
-                        <td>
-                            <%= $.trim(choice.description) || "--" %>
-                        </td>
-                    </tr>
-                    <% }); %>
-                    <tr>
-                        <td class="col-md-3"><strong>Enum Is Open ?</strong></td>
-                        <td colspan="2" style="text-transform:capitalize;"><%= property.enum.is_open %></td>
-                    </tr>
+                        <% _.each(property.enum.choices, function(choice, index) { %>
+                        <tr>
+                            <td class="col-md-3"><strong><%= choice == _.first(property.enum.choices) ? "Allowed Options" :"" %></strong></td>
+                            <td class="col-md-3">
+                                <%= choice.value %>
+                            </td>
+                            <td>
+                                <%= $.trim(choice.description) || "--" %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                        <% if (property.enum.is_open) { %>
+                        <tr>
+                            <td class="col-md-3"></td>
+                            <td>Other</td>
+                            <td>User Defined</td>
+                        </tr>
+                        <% } %>
                     <% } %>
                 </tbody>
             </table>
