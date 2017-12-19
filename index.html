@@ -125,27 +125,28 @@
                 </h3>
             </header>
             <% _.each(subTopic.properties, function(property) { %>
+            <% var colCount = property.type === "enum" ? 3 : 2;  %>
             <table class="table table-bordered table-hover table-condensed" style="margin-bottom:8px;">
                 <tbody>
+
                     <tr class="bg-info">
-                        <td class="bg-info property-name" colspan="3">
+                        <td class="property-name" colspan="<%= colCount %>">
                             <strong><%- property.label %></strong>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-md-3"><strong>Description</strong></td>
-                        <td colspan="2"><%= property.description %></td>
+                        <td class="property-description-caption"><strong>Description</strong></td>
+                        <td colspan="<%= colCount - 1 %>"><%= property.description %></td>
                     </tr>
                     <tr>
-                        <td class="col-md-3"><strong>Type | Cardinality</strong></td>
-                        <td colspan="2"><%= property.type %> | <%= property.cardinality %></td>
+                        <td class="property-cardinality-caption"><strong>Type | Cardinality</strong></td>
+                        <td colspan="<%= colCount - 1 %>"><%= property.type %> | <%= property.cardinality %></td>
                     </tr>
-                    <!-- Enums -->
                     <% if (property.type === "enum") { %>
                         <% _.each(property.enum.choices, function(choice, index) { %>
                         <tr>
-                            <td class="col-md-3"><strong><%= choice == _.first(property.enum.choices) ? "Allowed Options" :"" %></strong></td>
-                            <td class="col-md-3">
+                            <td class="property-description-caption"><strong><%= choice === _.first(property.enum.choices) ? "Allowed Options" :"" %></strong></td>
+                            <td class="property-enum-caption">
                                 <%= choice.value %>
                             </td>
                             <td>
@@ -155,12 +156,13 @@
                         <% }); %>
                         <% if (property.enum.is_open) { %>
                         <tr>
-                            <td class="col-md-3"></td>
+                            <td class="property-description-caption"></td>
                             <td>Other</td>
                             <td>User Defined</td>
                         </tr>
                         <% } %>
                     <% } %>
+
                 </tbody>
             </table>
             <% }); %>
