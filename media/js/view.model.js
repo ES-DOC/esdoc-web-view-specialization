@@ -19,7 +19,7 @@
             STATE.project = p;
             STATE.config = APP.config[p.id];
             STATE.topics = p.topics;
-            STATE.setTopic(p.topics[0]);
+            STATE.setTopic(STATE.topics[0]);
         },
 
         setTopic: function (tp) {
@@ -70,7 +70,7 @@
 
     // Register topic.
     APP.registerTopic = function (topic) {
-        var p;
+        var p, subTopics;
 
         // Set project.
         p = _.find(STATE.projects, function (i) {
@@ -87,6 +87,11 @@
         } else {
             p.topics.push(topic);
         }
+
+        // Exclude sub-topics without properties.
+        topic.subTopics = _.filter(topic.subTopics, (i) => {
+            return i.properties.length > 0;
+        });
 
         // Set default table.
         topic.tables = [{
