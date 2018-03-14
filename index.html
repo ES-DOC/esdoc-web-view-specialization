@@ -141,6 +141,10 @@
                         <td class="property-cardinality-caption"><strong>Type | Cardinality</strong></td>
                         <td colspan="<%= colCount - 1 %>"><%= property.type %> | <%= property.cardinality %></td>
                     </tr>
+                    <tr>
+                        <td class="property-specid-caption"><strong>Spec. ID</strong></td>
+                        <td colspan="<%= colCount - 1 %>"><%= property.id %></td>
+                    </tr>
                     <% if (property.type === "enum") { %>
                         <% _.each(property.enum.choices, function(choice, index) { %>
                         <tr>
