@@ -18,7 +18,7 @@ this.window.$ = this.window.$jq = this.jQuery.noConflict();
         NAME: 'Specializations Viewer',
 
         // Version.
-        VERSION: '0.12.0.0',
+        VERSION: '0.13.0.0',
 
         // Copyright statement.
         copyrightYear: new Date().getFullYear(),
