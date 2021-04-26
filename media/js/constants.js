@@ -44,6 +44,12 @@
                 topic: "Realm",
                 subTopic: "Process"
             }
+        },
+        cordex: {
+            labels: {
+                topic: "Realm",
+                subTopic: "Process"
+            }
         }
     };
 
